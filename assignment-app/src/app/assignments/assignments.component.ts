@@ -1,6 +1,7 @@
 import { Component, OnInit} from '@angular/core';
 import { AssignmentsService } from '../shared/assignments.service';
 import { Assignment } from './assignment.model';
+import { Matiere } from './matiere.model'
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
@@ -11,6 +12,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class AssignmentsComponent implements OnInit{
   assignmentSelectionne: Assignment;
   assignments: Assignment[] ;
+  matieres:Matiere[];
   
   constructor(private assignmentService: AssignmentsService, private router: Router, private route: ActivatedRoute) {}
   

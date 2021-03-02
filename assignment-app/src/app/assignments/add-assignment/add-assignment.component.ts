@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AssignmentsService } from 'src/app/shared/assignments.service';
 import { Assignment } from '../assignment.model';
+import { Matiere }  from '../matiere.model';
+
 
 @Component({
   selector: 'app-add-assignment',
@@ -10,8 +12,25 @@ import { Assignment } from '../assignment.model';
 })
 export class AddAssignmentComponent implements OnInit {
   // pour le formulaire
+  
   nomDevoir = '';
+  nomEleve = '';
   dateDeRendu: Date = null;
+  nomMatiere = '';
+  image ='' ;
+  nomP='';
+  photo = '';
+  note: number = 0;
+  remarque = '';
+
+  
+  
+   matieres: Matiere[] = [
+    {nomMatiere: 'oracle', imgMatiere: 'assets/images/oracle.jpg', nomProf: 'Mopolo', photoProf: '.../assets/images/oracle.jpg'},
+    {nomMatiere: 'Angular', imgMatiere: 'assets/images/angular.png', nomProf: 'Buffa', photoProf: '.../assets/images/angular.png'},
+    {nomMatiere: 'Grails', imgMatiere: 'assets/images/grails.png', nomProf: 'Galli', photoProf: '.../assets/images/grails.png'},
+    {nomMatiere: 'java', imgMatiere: 'assets/images/java.png', nomProf: 'Amos', photoProf: '.../assets/images/java.png'},
+  ];
 
   constructor(
     private assignmentsService: AssignmentsService,
@@ -24,15 +43,32 @@ export class AddAssignmentComponent implements OnInit {
     // evite la soumission standard du formulaire, qui génère un warning
     // dans la console...
     event.preventDefault();
-
+    
     console.log(
-      'Dans submit nom = ' + this.nomDevoir + ' date = ' + this.dateDeRendu
+      'Dans submit nom = ' + this.nomDevoir + ' date = ' + this.dateDeRendu + ' eleve = ' + this.nomEleve
+      + ' matiere = ' + this.nomMatiere
+      + ' note = ' + this.note
     );
+
+    
     let newAssignment = new Assignment();
     newAssignment.id = Math.floor(Math.random() * 1000000);
     newAssignment.nom = this.nomDevoir;
     newAssignment.dateDeRendu = this.dateDeRendu;
     newAssignment.rendu = false;
+    newAssignment.auteur = this.nomEleve;
+    this.matieres.forEach(a => {
+      if(a.nomMatiere == this.nomMatiere)
+      {
+        newAssignment.nomMatiere=a.nomMatiere;
+        newAssignment.imgMatiere= a.imgMatiere;
+        newAssignment.nomProf=a.nomProf;
+        newAssignment.photoProf=a.photoProf;
+
+      }
+    });
+    newAssignment.note=this.note;
+    newAssignment.remarque=this.remarque;
 
     // on va utiliser directement le service
     this.assignmentsService
@@ -44,7 +80,7 @@ export class AddAssignmentComponent implements OnInit {
         // on va devoir faire l'équivalent du routerLink="/home" mais
         // par programme...
         // on retourne à la page d'accueil
-        this.router.navigate(['/home']);
+        this.router.navigate(['/affiche']);
       });
   }
 }
