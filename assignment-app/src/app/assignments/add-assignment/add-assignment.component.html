@@ -97,7 +97,7 @@
       </mat-form-field>
 
     </form>
-    <button mat-raised-button color="primary" matStepperNext>Suivant</button>
+    <button mat-flat-button color="primary" matStepperNext>Suivant</button>
   </mat-step>
   <mat-step>
     <form ngForm class="form" #assignmentForm>
@@ -117,10 +117,10 @@
         </mat-select>
       </mat-form-field>
     </form>
-    <button mat-raised-button color="warn" matStepperPrevious>Retour</button>
-    <button mat-raised-button color="primary" matStepperNext>Suivant</button>
+    <button mat-flat-button color="warn" matStepperPrevious>Retour</button>
+    <button mat-flat-button color="primary" matStepperNext>Suivant</button>
   </mat-step>
-  <mat-step>
+  <!--<mat-step>
     <form ngForm class="form" #assignmentForm>
       <ng-template matStepLabel>Note&Observation</ng-template>
       <mat-form-field>
@@ -131,15 +131,15 @@
         <textarea matInput placeholder="Remarque" [(ngModel)]='remarque' name="remarque"></textarea>
       </mat-form-field>
     </form>
-    <button mat-raised-button color="warn" matStepperPrevious>Retour</button>
-    <button mat-raised-button color="primary" matStepperNext>Suivant</button>
-  </mat-step>
+    <button mat-flat-button color="warn" matStepperPrevious>Retour</button>
+    <button mat-flat-button color="primary" matStepperNext>Suivant</button>
+  </mat-step>-->
   <mat-step>
     <div>
 
-      <button mat-raised-button color="warn" matStepperPrevious>Retour</button>
+      <button mat-flat-button color="warn" matStepperPrevious>Retour</button>
 
-      <button mat-raised-button color="primary" (click)="onSubmit($event); assignmentForm.reset();">
+      <button mat-flat-button color="primary" (click)="onSubmit($event); assignmentForm.reset();">
         Ajouter un devoir
       </button>
     </div>

@@ -4,6 +4,12 @@
   margin: 20px;
 }
 
+.form {
+  display: flex;
+  flex-direction: column;
+  margin: 5px;
+}
+
 #bottom {
   display:flex;
   justify-content: space-between;

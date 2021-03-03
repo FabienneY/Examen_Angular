@@ -48,6 +48,11 @@ export class AssignmentDetailComponent implements OnInit {
       });
   }
 
+  onClickNoter(){
+    let id: number = +this.route.snapshot.params.id;
+    this.router.navigate(['/assignment/{{assignmentTransmis.id}}']);
+  }
+
   onDelete() {
     this.assignmentsService
       .deleteAssignment(this.assignmentTransmis)
