@@ -61,60 +61,44 @@
     </div>
   </nav>
 </div>
-<<<<<<< HEAD
 <div class="container" fxLayoutAlign="center center" fxLayoutGap="80px">
   <mat-card *ngIf="assignmentTransmis" class="example-card">
-  <mat-card-header>
-   <img mat-card-avatar src="{{assignmentTransmis.photoProf}}">
-    <mat-card-title>{{assignmentTransmis.nomMatiere}} / {{assignmentTransmis.nom}}</mat-card-title>
-    <mat-card-subtitle>{{assignmentTransmis.dateDeRendu | date}}</mat-card-subtitle>
-  </mat-card-header>
-  <center><img src="{{assignmentTransmis.imgMatiere}}" alt="Photo de la matière"></center><br>
-  <div  fxLayout="row wrap" fxLayoutAlign="space-between center" fxLayoutGap="20px"><div><b>Nom de l'élève :</b> {{assignmentTransmis.auteur}} <br>
-    <b>Nom du professeur : </b>{{assignmentTransmis.nomProf}} <br><br></div>
-    <div *ngIf="assignmentTransmis.rendu"><b>Note :</b> {{assignmentTransmis.note}} <br>
-      <b>Remarque : </b>{{assignmentTransmis.remarque}} <br><br></div></div>
-    <div id="bottom">
-      <mat-checkbox *ngIf="!assignmentTransmis.rendu" (click)="onAssignmentRendu()">
-        Devoir rendu
-      </mat-checkbox> 
-=======
-<div class="container">
-  <mat-card *ngIf="assignmentTransmis">
-    <mat-card-title>le devoir {{assignmentTransmis.nom}}</mat-card-title>
-    <mat-card-subtitle>rendu {{assignmentTransmis.dateDeRendu | date}}</mat-card-subtitle>
+    <mat-card-header>
+      <img mat-card-avatar src="{{assignmentTransmis.photoProf}}">
+      <mat-card-title>{{assignmentTransmis.nomMatiere}} / {{assignmentTransmis.nom}}</mat-card-title>
+      <mat-card-subtitle>{{assignmentTransmis.dateDeRendu | date}}</mat-card-subtitle>
+    </mat-card-header>
+    <center><img src="{{assignmentTransmis.imgMatiere}}" alt="Photo de la matière"></center><br>
+    <div fxLayout="row wrap" fxLayoutAlign="space-between center" fxLayoutGap="20px">
+      <div><b>Nom de l'élève :</b> {{assignmentTransmis.auteur}} <br>
+        <b>Nom du professeur : </b>{{assignmentTransmis.nomProf}} 
+      </div>
+      <div *ngIf="assignmentTransmis.rendu"><b>Note :</b> {{assignmentTransmis.note}} <br>
+        <b>Remarque : </b>{{assignmentTransmis.remarque}} 
+      </div>
+    </div>
     <div id="bottom">
       <mat-checkbox *ngIf="!assignmentTransmis.rendu" (click)="onAssignmentRendu()">
         Devoir rendu
       </mat-checkbox>
-      <!--<div *ngIf="assignmentTransmis.rendu" class="form">
-        <div>NOTE/OBSERVATION</div>
-        <mat-form-field>
-          <input matInput placeholder="Entrez la note" [(ngModel)]='note' name="note">
-        </mat-form-field>
->>>>>>> 6cb9c001dc6493e00d4c6d9939c6beb845bb2a82
 
-        <mat-form-field>
-          <textarea matInput placeholder="Remarque" [(ngModel)]='remarque' name="remarque"></textarea>
-        </mat-form-field>
-        <button mat-flat-button color="primary"  (click)="onClickNoter()">
-          Noter
-        </button>
-      </div>-->
-      <button mat-flat-button color="primary"  (click)="onClickEdit()">
-        EDIT
+      <mat-form-field>
+        <textarea matInput placeholder="Remarque" [(ngModel)]='remarque' name="remarque"></textarea>
+      </mat-form-field>
+      <button mat-flat-button color="primary" (click)="onClickNoter()">
+        Noter
       </button>
-
-      <button mat-flat-button color="warn"  (click)="onDelete()">
-        DELETE
-      </button>
-<<<<<<< HEAD
-   </div>
-  
-=======
     </div>
->>>>>>> 6cb9c001dc6493e00d4c6d9939c6beb845bb2a82
-  </mat-card>
+    <button mat-flat-button color="primary" (click)="onClickEdit()">
+      EDIT
+    </button>
+
+    <button mat-flat-button color="warn" (click)="onDelete()">
+      DELETE
+    </button>
+
+
+</mat-card>
 </div>
 <br><br><br><br><br><br><br><br>
 <div class="bottom section-padding">
