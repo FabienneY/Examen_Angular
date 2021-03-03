@@ -5,6 +5,11 @@
   flex-direction: column;
   margin: 5px;
 }
+#bottom {
+  display:flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
 
 .navbar-icon-top .navbar-nav .nav-link > .fa {
   position: relative;
