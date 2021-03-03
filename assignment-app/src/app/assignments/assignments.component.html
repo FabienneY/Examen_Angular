@@ -15,7 +15,7 @@
             </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link disabled" routerLink="/affiche">
+          <a class="nav-link" routerLink="/affiche">
             <i class="fa fa-list">
               <span class="badge badge-danger"></span>
             </i>
@@ -41,20 +41,14 @@
             Notifications
           </a>
         </li>
-        
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="fa fa-user">
-              <span class="badge badge-primary"></span>
+
+        <li class="nav-item">
+          <a class="nav-link" href="#">
+            <i class="fa fa-sign-out">
+              <span class="badge badge-info"></span>
             </i>
-            Dropdown
+            Deconnexion
           </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Something else here</a>
-          </div>
         </li>
       </ul>
     </div>
@@ -63,16 +57,16 @@
 <div class="container">
   <br><br>
   
-  <div fxLayout="row" fxLayoutAlign="space-evenly center" fxLayoutGap="20px">
+  <div fxLayout="row wrap" fxLayoutAlign="space-around center" fxLayoutGap="20px" dir="ltr">
   <mat-list *ngFor="let a of assignments">
     
     <mat-card class="example-card">
       <mat-card-header>
-        <div mat-card-avatar class="example-header-image" *ngIf="a"></div>
+        <img mat-card-avatar src="{{a.photoProf}}" class="example-header-image">
         <mat-card-title>{{a.nom}}</mat-card-title>
         <mat-card-subtitle>{{a.auteur}}</mat-card-subtitle>
       </mat-card-header>
-      <img mat-card-image src="{{a.imgMatiere}}" alt="Photo of a Shiba Inu">
+      <img mat-card-image src="{{a.imgMatiere}}" alt="Photo de la matière">
       <mat-card-content>
          Date de rendu : {{a.dateDeRendu | date}} 
          <br><br>
@@ -85,7 +79,7 @@
             <ng-template #nonsoumis>
               <p [ngClass]="{nonrendu:true}">le devoir {{a.nomMatiere}}/{{a.nom}} n'a pas été rendu...</p>
             </ng-template>
-            <mat-divider></mat-divider>
+            
           </mat-list-item>
         </a>
       </mat-card-content>

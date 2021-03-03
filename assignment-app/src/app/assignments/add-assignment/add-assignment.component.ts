@@ -26,10 +26,10 @@ export class AddAssignmentComponent implements OnInit {
   
   
    matieres: Matiere[] = [
-    {nomMatiere: 'oracle', imgMatiere: 'assets/images/oracle.jpg', nomProf: 'Mopolo', photoProf: '.../assets/images/oracle.jpg'},
-    {nomMatiere: 'Angular', imgMatiere: 'assets/images/angular.png', nomProf: 'Buffa', photoProf: '.../assets/images/angular.png'},
-    {nomMatiere: 'Grails', imgMatiere: 'assets/images/grails.png', nomProf: 'Galli', photoProf: '.../assets/images/grails.png'},
-    {nomMatiere: 'java', imgMatiere: 'assets/images/java.png', nomProf: 'Amos', photoProf: '.../assets/images/java.png'},
+    {nomMatiere: 'oracle', imgMatiere: 'assets/images/oracle.jpg', nomProf: 'Mopolo', photoProf: 'assets/images/oracle.jpg'},
+    {nomMatiere: 'Angular', imgMatiere: 'assets/images/angular.png', nomProf: 'Buffa', photoProf: 'assets/images/angular.png'},
+    {nomMatiere: 'Grails', imgMatiere: 'assets/images/grails.png', nomProf: 'Galli', photoProf: 'assets/images/grails.png'},
+    {nomMatiere: 'java', imgMatiere: 'assets/images/java.png', nomProf: 'Amos', photoProf: 'assets/images/java.png'},
   ];
 
   constructor(

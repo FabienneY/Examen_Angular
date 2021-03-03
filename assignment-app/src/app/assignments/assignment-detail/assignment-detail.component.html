@@ -15,7 +15,7 @@
             </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link disabled" routerLink="/affiche">
+          <a class="nav-link" routerLink="/affiche">
             <i class="fa fa-list">
               <span class="badge badge-danger"></span>
             </i>
@@ -60,14 +60,22 @@
     </div>
   </nav>
 </div>
-<div class="container">
- <mat-card *ngIf="assignmentTransmis">
-    <mat-card-title>{{assignmentTransmis.nom}}</mat-card-title>
+<div class="container" fxLayoutAlign="center center" fxLayoutGap="80px">
+  <mat-card *ngIf="assignmentTransmis" class="example-card">
+  <mat-card-header>
+   <img mat-card-avatar src="{{assignmentTransmis.photoProf}}">
+    <mat-card-title>{{assignmentTransmis.nomMatiere}} / {{assignmentTransmis.nom}}</mat-card-title>
     <mat-card-subtitle>{{assignmentTransmis.dateDeRendu | date}}</mat-card-subtitle>
+  </mat-card-header>
+  <center><img src="{{assignmentTransmis.imgMatiere}}" alt="Photo de la matière"></center><br>
+  <div  fxLayout="row wrap" fxLayoutAlign="space-between center" fxLayoutGap="20px"><div><b>Nom de l'élève :</b> {{assignmentTransmis.auteur}} <br>
+    <b>Nom du professeur : </b>{{assignmentTransmis.nomProf}} <br><br></div>
+    <div *ngIf="assignmentTransmis.rendu"><b>Note :</b> {{assignmentTransmis.note}} <br>
+      <b>Remarque : </b>{{assignmentTransmis.remarque}} <br><br></div></div>
     <div id="bottom">
       <mat-checkbox *ngIf="!assignmentTransmis.rendu" (click)="onAssignmentRendu()">
         Devoir rendu
-      </mat-checkbox>
+      </mat-checkbox> 
 
       <button mat-flat-button color="primary" (click)="onClickEdit()">
         EDIT
@@ -77,8 +85,10 @@
         DELETE
       </button>
    </div>
+  
   </mat-card>
 </div>
+<br><br><br><br><br><br><br><br>
 <div class="bottom section-padding">
   <div class="container">
     <div class="row">

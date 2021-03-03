@@ -34,7 +34,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 const routes: Routes = [
   { path: '', component: ConnexionComponent },
   { path: 'home', component: ConnexionComponent },
-  { path: 'affiche', component: AssignmentsComponent },
+  { path: 'affiche', component: AssignmentsComponent, canActivate: [AuthGuard] },
   { path: 'add', component: AddAssignmentComponent },
   { path: 'assignment/:id', component: AssignmentDetailComponent },
   {

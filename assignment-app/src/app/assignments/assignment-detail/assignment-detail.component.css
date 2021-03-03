@@ -10,6 +10,11 @@
   align-items: flex-end;
 }
 
+.example-card {
+  max-width: 1000px;
+  max-height: 500px;
+}
+
 .navbar-icon-top .navbar-nav .nav-link > .fa {
   position: relative;
   width: 36px;
