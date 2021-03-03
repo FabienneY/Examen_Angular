@@ -4,7 +4,7 @@
 <!------ Include the above in your HEAD tag ---------->
 <div>
   <nav class="navbar navbar-icon-top navbar-expand-lg navbar-dark bg-secondary">
-    
+
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
@@ -12,7 +12,7 @@
             <i class="fa fa-home"></i>
             Home
             <span class="sr-only">(current)</span>
-            </a>
+          </a>
         </li>
         <li class="nav-item">
           <a class="nav-link" routerLink="/affiche">
@@ -30,7 +30,7 @@
             Ajout Assignements
           </a>
         </li>
-        
+
       </ul>
       <ul class="navbar-nav ">
         <li class="nav-item">
@@ -41,9 +41,10 @@
             Notifications
           </a>
         </li>
-        
+
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
             <i class="fa fa-user">
               <span class="badge badge-primary"></span>
             </i>
@@ -60,6 +61,7 @@
     </div>
   </nav>
 </div>
+<<<<<<< HEAD
 <div class="container" fxLayoutAlign="center center" fxLayoutGap="80px">
   <mat-card *ngIf="assignmentTransmis" class="example-card">
   <mat-card-header>
@@ -76,16 +78,42 @@
       <mat-checkbox *ngIf="!assignmentTransmis.rendu" (click)="onAssignmentRendu()">
         Devoir rendu
       </mat-checkbox> 
+=======
+<div class="container">
+  <mat-card *ngIf="assignmentTransmis">
+    <mat-card-title>le devoir {{assignmentTransmis.nom}}</mat-card-title>
+    <mat-card-subtitle>rendu {{assignmentTransmis.dateDeRendu | date}}</mat-card-subtitle>
+    <div id="bottom">
+      <mat-checkbox *ngIf="!assignmentTransmis.rendu" (click)="onAssignmentRendu()">
+        Devoir rendu
+      </mat-checkbox>
+      <!--<div *ngIf="assignmentTransmis.rendu" class="form">
+        <div>NOTE/OBSERVATION</div>
+        <mat-form-field>
+          <input matInput placeholder="Entrez la note" [(ngModel)]='note' name="note">
+        </mat-form-field>
+>>>>>>> 6cb9c001dc6493e00d4c6d9939c6beb845bb2a82
 
-      <button mat-flat-button color="primary" (click)="onClickEdit()">
+        <mat-form-field>
+          <textarea matInput placeholder="Remarque" [(ngModel)]='remarque' name="remarque"></textarea>
+        </mat-form-field>
+        <button mat-flat-button color="primary"  (click)="onClickNoter()">
+          Noter
+        </button>
+      </div>-->
+      <button mat-flat-button color="primary"  (click)="onClickEdit()">
         EDIT
       </button>
 
-      <button mat-flat-button color="warn" (click)="onDelete()">
+      <button mat-flat-button color="warn"  (click)="onDelete()">
         DELETE
       </button>
+<<<<<<< HEAD
    </div>
   
+=======
+    </div>
+>>>>>>> 6cb9c001dc6493e00d4c6d9939c6beb845bb2a82
   </mat-card>
 </div>
 <br><br><br><br><br><br><br><br>

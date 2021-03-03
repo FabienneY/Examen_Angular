@@ -14,6 +14,7 @@
             <span class="sr-only">(current)</span>
             </a>
         </li>
+<<<<<<< HEAD
         <li class="nav-item">
           <a class="nav-link" routerLink="/affiche">
             <i class="fa fa-list">
@@ -21,6 +22,29 @@
             </i>
             Listes Assignements
           </a>
+=======
+        <li >
+          <div > 
+          <button mat-icon-button [matMenuTriggerFor]="menu" class="nav-link">
+            
+            <mat-icon>menu</mat-icon>
+            
+          </button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item>
+              <mat-icon>dialpad</mat-icon>
+              <span>Assignements Rendu</span>
+            </button>
+            <button mat-menu-item disabled>
+              <mat-icon>voicemail</mat-icon>
+              <span>Assignements non Rendu</span>
+            </button>
+            <button mat-menu-item>
+              <mat-icon>notifications_off</mat-icon>
+              <span>Assignements a rendre aujourd'hui</span>
+            </button>
+          </mat-menu> </div>
+>>>>>>> 6cb9c001dc6493e00d4c6d9939c6beb845bb2a82
         </li>
         <li class="nav-item">
           <a class="nav-link" routerLink="/add">
