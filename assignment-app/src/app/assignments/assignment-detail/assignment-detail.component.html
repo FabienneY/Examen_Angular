@@ -4,23 +4,29 @@
 <!------ Include the above in your HEAD tag ---------->
 <div>
   <nav class="navbar navbar-icon-top navbar-expand-lg navbar-dark bg-secondary">
-
+    
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="#">
-            <i class="fa fa-home"></i>
-            Home
-            <span class="sr-only">(current)</span>
-          </a>
+          <a class="navbar-brand">
+            <img style="margin-top: -10px;" alt="Logo" src="../../../assets/images/logo.PNG" class="pull-left">
+            </a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/affiche">
+
+
+        <li class="nav-item dropdown">
+           <a [matMenuTriggerFor]="menu" class="nav-link dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="fa fa-list">
-              <span class="badge badge-danger"></span>
-            </i>
-            Listes Assignements
-          </a>
+              <span class="badge badge-primary"></span>
+            </i> 
+             Listes Assignements
+            </a>
+          <mat-menu #menu="matMenu">
+            <a class="dropdown-item" routerLink="/affiche"> <i class="fa fa-check-square-o"></i> Assignments rendus</a>
+            <a class="dropdown-item" routerLink="/affiche"> <i class="fa fa-window-close-o"></i> Assignments non rendus</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" routerLink="/affiche"> <i class="fa fa-bars"></i> Ensemble des assignments</a>
+          </mat-menu> 
         </li>
         <li class="nav-item">
           <a class="nav-link" routerLink="/add">
@@ -30,32 +36,17 @@
             Ajout Assignements
           </a>
         </li>
-
+        
       </ul>
       <ul class="navbar-nav ">
+        
         <li class="nav-item">
           <a class="nav-link" href="#">
-            <i class="fa fa-bell">
-              <span class="badge badge-info">11</span>
+            <i class="fa fa-sign-out">
+              <span class="badge badge-info"></span>
             </i>
-            Notifications
+            Deconnexion
           </a>
-        </li>
-
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
-            <i class="fa fa-user">
-              <span class="badge badge-primary"></span>
-            </i>
-            Dropdown
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Something else here</a>
-          </div>
         </li>
       </ul>
     </div>

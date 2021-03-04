@@ -2,41 +2,34 @@
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <!------ Include the above in your HEAD tag ---------->
-<div>
+<div >
   <nav class="navbar navbar-icon-top navbar-expand-lg navbar-dark bg-secondary">
     
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="#">
-            <i class="fa fa-home"></i>
-            Home
-            <span class="sr-only">(current)</span>
+          <a class="navbar-brand">
+            <img style="margin-top: -10px;" alt="Logo" src="../../../assets/images/logo.PNG" class="pull-left">
             </a>
         </li>
-        <li >
-          <div > 
-          <button mat-icon-button [matMenuTriggerFor]="menu" class="nav-link">
-            <mat-icon>menu</mat-icon>
-            <span class="badge badge-warning"></span>
-          </button>
-          <mat-menu #menu="matMenu">
-            <button mat-menu-item>
-              <mat-icon>dialpad</mat-icon>
-              <span>Assignements Rendu</span>
-            </button>
-            <button mat-menu-item disabled>
-              <mat-icon>voicemail</mat-icon>
-              <span>Assignements non Rendu</span>
-            </button>
-            <button mat-menu-item>
-              <mat-icon>notifications_off</mat-icon>
-              <span>Assignements a rendre aujourd'hui</span>
-            </button>
-          </mat-menu> </div>
+
+
+        <li  class="nav-item dropdown">
+           <a [class.disabled]="!isconnecte()" [matMenuTriggerFor]="menu" class="nav-link dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fa fa-list">
+              <span class="badge badge-primary"></span>
+            </i> 
+             Listes Assignements
+            </a>
+            <mat-menu #menu="matMenu">
+              <a class="dropdown-item" routerLink="/affiche"> <i class="fa fa-check-square-o"></i> Assignments rendus</a>
+              <a class="dropdown-item" routerLink="/affiche"> <i class="fa fa-window-close-o"></i> Assignments non rendus</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" routerLink="/affiche"> <i class="fa fa-bars"></i> Ensemble des assignments</a>
+            </mat-menu> 
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/add">
+          <a class="nav-link" routerLink="/add" [class.disabled]="!isconnecte()">
             <i class="fa fa-pencil-square-o">
               <span class="badge badge-warning"></span>
             </i>
@@ -46,17 +39,10 @@
         
       </ul>
       <ul class="navbar-nav ">
-        <li class="nav-item">
-          <a class="nav-link" href="#">
-            <i class="fa fa-bell">
-              <span class="badge badge-info">11</span>
-            </i>
-            Notifications
-          </a>
-        </li>
+       
 
         <li class="nav-item">
-          <a class="nav-link" href="#">
+          <a class="nav-link" (click)=sedeconnecter()>
             <i class="fa fa-sign-out">
               <span class="badge badge-info"></span>
             </i>

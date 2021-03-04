@@ -30,6 +30,7 @@ import { ConnexionComponent } from './connexion/connexion.component';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatMenuModule} from '@angular/material/menu';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 const routes: Routes = [
   { path: '', component: ConnexionComponent },
@@ -76,7 +77,8 @@ const routes: Routes = [
     HttpClientModule,
     MatPaginatorModule,
     MatMenuModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent],

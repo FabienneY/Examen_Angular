@@ -3,6 +3,7 @@ import { AssignmentsService } from '../shared/assignments.service';
 import { Assignment } from './assignment.model';
 import { Matiere } from './matiere.model'
 import { ActivatedRoute, Router } from '@angular/router';
+import { AuthService } from '../shared/auth.service';
 
 @Component({
   selector: 'app-assignments',
@@ -14,7 +15,7 @@ export class AssignmentsComponent implements OnInit{
   assignments: Assignment[] ;
   matieres:Matiere[];
   
-  constructor(private assignmentService: AssignmentsService, private router: Router, private route: ActivatedRoute) {}
+  constructor(private assignmentService: AssignmentsService, private router: Router, private route: ActivatedRoute, private authService:AuthService) {}
   
 
   ngOnInit(): void {
@@ -50,6 +51,19 @@ export class AssignmentsComponent implements OnInit{
         // on retourne à la page d'accueil
         this.router.navigate(['/affiche']);
       });
+  }
+  sedeconnecter(){
+    this.authService.deconnecte().subscribe(result=>{
+        if(result.auth==false){
+          this.router.navigate(['/home']);
+          console.log('Vous êtes deconnecté');
+        }
+    })
+    
+  }
+
+  isconnecte() : boolean{
+    return this.authService.estconnecte;
   }
 
 }
