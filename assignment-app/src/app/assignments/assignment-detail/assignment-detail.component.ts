@@ -12,6 +12,7 @@ import { AuthService } from 'src/app/shared/auth.service';
 })
 export class AssignmentDetailComponent implements OnInit {
   assignmentTransmis: Assignment;
+  checked: boolean;
   
   constructor(
     private assignmentsService: AssignmentsService,
@@ -22,6 +23,8 @@ export class AssignmentDetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAssignment();
+    this.checked = false;
+    
   }
 
   getAssignment() {
@@ -36,6 +39,8 @@ export class AssignmentDetailComponent implements OnInit {
   }
 
   onAssignmentRendu() {
+
+    this.checked=true;
     this.assignmentTransmis.rendu = true;
 
     this.assignmentsService
@@ -44,7 +49,7 @@ export class AssignmentDetailComponent implements OnInit {
         console.log(message);
 
         // on retourne à la page d'accueil
-        this.router.navigate(['/affiche']);
+        this.router.navigate(['/assignment', this.assignmentTransmis.id, 'edit']);
       });
   }
 
@@ -70,6 +75,21 @@ export class AssignmentDetailComponent implements OnInit {
       queryParams: { nom: 'toto', age: '30' },
       fragment: 'edition',
     });
+  }
+
+  NonAssignmentRendu() {
+
+    this.checked=false;
+    this.assignmentTransmis.rendu = false;
+
+    this.assignmentsService
+      .updateAssignment(this.assignmentTransmis)
+      .subscribe((message) => {
+        console.log(message);
+
+        // on retourne à la page d'accueil
+        this.router.navigate(['/affiche']);
+      });
   }
 
 }

@@ -15,7 +15,7 @@
 
 
         <li  class="nav-item dropdown">
-           <a [class.disabled]="!isconnecte()" [matMenuTriggerFor]="menu" class="nav-link dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+           <a [matMenuTriggerFor]="menu" class="nav-link dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="fa fa-list">
               <span class="badge badge-primary"></span>
             </i> 
@@ -29,7 +29,7 @@
             </mat-menu> 
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/add" [class.disabled]="!isconnecte()">
+          <a class="nav-link" routerLink="/add">
             <i class="fa fa-pencil-square-o">
               <span class="badge badge-warning"></span>
             </i>

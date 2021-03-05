@@ -37,38 +37,11 @@
         </li>
         
       </ul>
-      <ul class="navbar-nav ">
-        
-
-        <li class="nav-item">
-          <a class="nav-link" href="#">
-            <i class="fa fa-sign-out">
-              <span class="badge badge-info"></span>
-            </i>
-            Deconnexion
-          </a>
-        </li>
-      </ul>
+      
     </div>
   </nav>
 </div>
-<!-- <form ngForm class="form" #assignmentForm>
-    <mat-form-field>
-      <input matInput placeholder="Entrez un nom" [(ngModel)]="nomDevoir" name="nom">
-    </mat-form-field>
 
-    <mat-form-field>
-      <input matInput [matDatepicker]="datepicker" [(ngModel)]="dateDeRendu" name="date">
-
-      <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
-      <mat-datepicker #datepicker></mat-datepicker>
-
-    </mat-form-field>
-    <button mat-stroked-button color="primary" (click)="onSubmit($event); assignmentForm.reset();">
-      Ajouter un devoir
-    </button>
-    
-  </form>-->
 <mat-horizontal-stepper #assignmentForm>
   <mat-step>
     <form ngForm class="form" #assignmentForm>
@@ -88,18 +61,11 @@
       </mat-form-field>
 
     </form>
-    <button mat-flat-button color="primary" matStepperNext>Suivant</button>
+    <button mat-flat-button matStepperNext>Suivant</button>
   </mat-step>
   <mat-step>
     <form ngForm class="form" #assignmentForm>
       <ng-template matStepLabel>Matière</ng-template>
-      <!--<mat-form-field appearance="fill">
-        <mat-select [(ngModel)]="nomMatiere" name="matiereE"[ngModelOptions]="{standalone: true}">
-          <mat-option *ngFor="let matiere of matieres" [Value]="matiere.nomMatiere">
-                  {{matiere.nomMatiere }}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>-->
 
       <mat-form-field appearance="fill">
         <mat-select [(ngModel)]="nomMatiere" name="nomMatiere" [ngModelOptions]="{standalone: true}">
@@ -108,27 +74,14 @@
         </mat-select>
       </mat-form-field>
     </form>
-    <button mat-flat-button color="warn" matStepperPrevious>Retour</button>
-    <button mat-flat-button color="primary" matStepperNext>Suivant</button>
+    <button mat-flat-button matStepperPrevious>Retour</button>
+    <button mat-flat-button matStepperNext>Suivant</button>
   </mat-step>
-  <!--<mat-step>
-    <form ngForm class="form" #assignmentForm>
-      <ng-template matStepLabel>Note&Observation</ng-template>
-      <mat-form-field>
-        <input matInput placeholder="Entrez la note" [(ngModel)]='note' name="note">
-      </mat-form-field>
-      
-      <mat-form-field>
-        <textarea matInput placeholder="Remarque" [(ngModel)]='remarque' name="remarque"></textarea>
-      </mat-form-field>
-    </form>
-    <button mat-flat-button color="warn" matStepperPrevious>Retour</button>
-    <button mat-flat-button color="primary" matStepperNext>Suivant</button>
-  </mat-step>-->
+ 
   <mat-step>
-    <div>
+    <div fxLayout="row wrap" fxLayoutAlign="space-between center" fxLayoutGap="20px">
 
-      <button mat-flat-button color="warn" matStepperPrevious>Retour</button>
+      <button mat-flat-button color="warn" matStepperPrevious>Annuler</button>
 
       <button mat-flat-button color="primary" (click)="onSubmit($event); assignmentForm.reset();">
         Ajouter un devoir

@@ -17,9 +17,14 @@ export class EditAssigmentComponent implements OnInit {
   assignment: Assignment;
   // formulaire
   nomassignment: string;
+  nomEleve: string;
   dateDeRendu: Date;
+  nomMatiere: string;
+  note:number;
+  remarque:string;
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
+  ThirdFormGroup: FormGroup;
 
   constructor(
     private route: ActivatedRoute,
@@ -32,10 +37,16 @@ export class EditAssigmentComponent implements OnInit {
     console.log(this.route.snapshot.queryParams);
     console.log(this.route.snapshot.fragment);
     this.firstFormGroup = this._formBuilder.group({
-      firstCtrl: ['', Validators.required]
+      ctrlun: ['', Validators.required],  
+      ctrldeux: ['', Validators.required],  
+      ctrltrois: ['', Validators.required]
     });
     this.secondFormGroup = this._formBuilder.group({
-      secondCtrl: ['', Validators.required]
+      ctrlquatre: ['', Validators.required]
+    });
+    this.ThirdFormGroup = this._formBuilder.group({
+      ctrlcinq: ['', Validators.required], 
+      ctrlsix: ['', Validators.required]
     });
 
     this.getAssignment();
@@ -51,7 +62,11 @@ export class EditAssigmentComponent implements OnInit {
       this.assignment = assignment;
       if (assignment) {
         this.nomassignment = assignment.nom;
+        this.nomEleve = assignment.auteur;
         this.dateDeRendu = assignment.dateDeRendu;
+        this.nomMatiere = assignment.nomMatiere;
+        this.note = assignment.note;
+        this.remarque = assignment.remarque;
       }
     });
   }
@@ -61,16 +76,32 @@ export class EditAssigmentComponent implements OnInit {
       this.assignment.nom = this.nomassignment;
     }
 
+    if (this.nomEleve) {
+      this.assignment.auteur = this.nomEleve;
+    }
+
     if (this.dateDeRendu) {
       this.assignment.dateDeRendu = this.dateDeRendu;
+    }
+
+    if (this.nomMatiere) {
+      this.assignment.nomMatiere = this.nomMatiere;
+    }
+
+    if (this.note) {
+      this.assignment.note = this.note;
+    }
+
+    if (this.remarque) {
+      this.assignment.remarque = this.remarque;
     }
 
     this.assignmentsService
       .updateAssignment(this.assignment)
       .subscribe((reponse) => {
         console.log(reponse.message);
-        // on navigue vers la page d'accueil
-        this.router.navigate(['/affiche']);
+        this.router.navigate(['/assignment', this.assignment.id]);
       });
+      
   }
 }

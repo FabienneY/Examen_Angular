@@ -11,7 +11,7 @@ import { LoggingService } from './logging.service';
 
 export class AuthService {
 
- estconnecte = false;
+ estconnecte = true;
 
   constructor (private http: HttpClient){}
 

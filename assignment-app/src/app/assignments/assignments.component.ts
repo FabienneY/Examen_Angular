@@ -14,6 +14,7 @@ export class AssignmentsComponent implements OnInit{
   assignmentSelectionne: Assignment;
   assignments: Assignment[] ;
   matieres:Matiere[];
+  estconnecte=true;
   
   constructor(private assignmentService: AssignmentsService, private router: Router, private route: ActivatedRoute, private authService:AuthService) {}
   
@@ -57,13 +58,15 @@ export class AssignmentsComponent implements OnInit{
         if(result.auth==false){
           this.router.navigate(['/home']);
           console.log('Vous êtes deconnecté');
+          this.estconnecte = false;
         }
     })
+  
     
   }
 
-  isconnecte() : boolean{
-    return this.authService.estconnecte;
+  IsConnect(){
+    return this.authService.estconnecte = true;
   }
 
 }

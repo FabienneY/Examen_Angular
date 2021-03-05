@@ -38,77 +38,84 @@
         </li>
         
       </ul>
-      <ul class="navbar-nav ">
-        
-
-        <li class="nav-item">
-          <a class="nav-link" href="#">
-            <i class="fa fa-sign-out">
-              <span class="badge badge-info"></span>
-            </i>
-            Deconnexion
-          </a>
-        </li>
-      </ul>
+      
     </div>
   </nav>
 </div>
 <br><br>
 <div class="container" *ngIf="assignment">
   <h1>Edition de l'assignment {{assignment.nom}}</h1>
-  <!--<form ngForm class="form">
-    <mat-form-field>
-      <input matInput placeholder="Edition du nom" [(ngModel)]="nomassignment" name="assignment-name">
-    </mat-form-field>
-    <mat-form-field>
-      <input matInput [matDatepicker]="picker" placeholder="Edition de la date" [(ngModel)]="dateDeRendu" name="date">
-      <mat-datepicker-toggle matSuffix [for]="picker">
-      </mat-datepicker-toggle>
-      <mat-datepicker #picker></mat-datepicker>
-    </mat-form-field>
-    <button mat-raised-button color="primary" (click)="onSaveAssignment()">
-      Sauver
-    </button>
-    
-  </form>-->
+  <br>
+
   <mat-horizontal-stepper #stepper>
-    <mat-step [stepControl]="firstFormGroup">
-      <form [formGroup]="firstFormGroup">
-        <ng-template matStepLabel>Entrez le nom</ng-template>
+    <mat-step [stepControl]="firstFormGroup" *ngIf= 'assignment.remarque != ""'>
+      <br>
+      <form ngForm class="form" [formGroup]="firstFormGroup" >
+        <ng-template matStepLabel>Devoir</ng-template>
         <mat-form-field>
-          <mat-label>Nom</mat-label>
-          <input matInput placeholder="Edition du nom" [(ngModel)]="nomassignment" formControlName="firstCtrl" required>
+          <mat-label>Nom du devoir</mat-label>
+          <input matInput [(ngModel)]="nomassignment" formControlName="ctrlun" required>
         </mat-form-field>
-        <div>
-          <button mat-button matStepperNext>Suivant</button>
-        </div>
-      </form>
-    </mat-step>
-    <mat-step [stepControl]="secondFormGroup">
-      <form [formGroup]="secondFormGroup">
-        <ng-template matStepLabel>Entrez la date de rendu</ng-template>
+        
+        <mat-form-field>
+          <mat-label>Nom de l'élève</mat-label>
+          <input matInput [(ngModel)]="nomEleve"  formControlName="ctrldeux" required>
+        </mat-form-field>
+
         <mat-form-field>
           <mat-label>Date</mat-label>
-          <input matInput [matDatepicker]="picker" placeholder="Edition de la date" [(ngModel)]="dateDeRendu" formControlName="secondCtrl" required>
-          <mat-datepicker-toggle matSuffix [for]="picker">
-          </mat-datepicker-toggle>
-          <mat-datepicker #picker></mat-datepicker>
+          <input matInput [matDatepicker]="datepicker" [(ngModel)]="dateDeRendu" formControlName="ctrltrois" required>
+  
+          <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
+          <mat-datepicker #datepicker></mat-datepicker>
         </mat-form-field>
-        <div>
-          <button mat-button matStepperPrevious>Retour</button>
-          <button mat-button matStepperNext>Suivant</button>
-        </div>
-      </form>
+  
+      </form><br>
+      <button mat-flat-button matStepperNext>Suivant</button>
     </mat-step>
+    <mat-step [stepControl]="secondFormGroup" *ngIf= 'assignment.remarque != ""'>
+      <br>
+      <form ngForm class="form" [formGroup]="secondFormGroup" >
+        <ng-template matStepLabel>Matière</ng-template>
+  
+        <mat-form-field>
+          <mat-label>Nom de la matière</mat-label>
+          <input matInput [(ngModel)]="nomMatiere" formControlName="ctrlquatre" required>
+        </mat-form-field>
+      </form><br>
+      <button mat-flat-button matStepperPrevious>Retour</button>
+      <button mat-flat-button matStepperNext>Suivant</button>
+    </mat-step>
+   
+    <mat-step [stepControl]="ThirdFormGroup">
+      <br>
+      <form ngForm class="form" [formGroup]="ThirdFormGroup">
+        <ng-template matStepLabel>Note</ng-template>
+  
+        <mat-form-field>
+          <mat-label>Note</mat-label>
+          <input matInput [(ngModel)]="note" formControlName="ctrlcinq" required>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Remarque</mat-label>
+          <input matInput [(ngModel)]="remarque" formControlName="ctrlsix" required>
+        </mat-form-field>
+      </form>
+      <button mat-flat-button matStepperPrevious>Retour</button>
+      <button mat-flat-button matStepperNext>Modifier</button>
+    </mat-step>
+
     <mat-step>
-      <ng-template matStepLabel>Edit</ng-template>
-      <p>Voulez vous vraiment éditer cette modification ? </p>
-      <div>
-        <button mat-button matStepperPrevious>Retour</button>
-        <button mat-button (click)="onSaveAssignment()">Edit</button>
+      <br>
+      <center> Voulez vous vraiment Modifier </center>
+      <div fxLayout="row wrap" fxLayoutAlign="space-between center" fxLayoutGap="20px">
+        
+        <button mat-flat-button color="primary" (click)="onSaveAssignment()">Oui</button>
+        <button mat-flat-button color="warn" matStepperPrevious>Non</button>
       </div>
     </mat-step>
   </mat-horizontal-stepper>
+
 
 </div>
 <div class="bottom section-padding">
