@@ -107,10 +107,10 @@
 
     <mat-step>
       <br>
-      <center> Voulez vous vraiment Modifier </center>
+      <center> Voulez vous vraiment Modifier ? </center>
       <div fxLayout="row wrap" fxLayoutAlign="space-between center" fxLayoutGap="20px">
         
-        <button mat-flat-button color="primary" (click)="onSaveAssignment()">Oui</button>
+        <button mat-stroked-button mat-flat-button color="primary" (click)="onSaveAssignment()" aria-label="Show an example snack-bar">Oui</button>
         <button mat-flat-button color="warn" matStepperPrevious>Non</button>
       </div>
     </mat-step>

@@ -4,6 +4,7 @@ import { AssignmentsService } from 'src/app/shared/assignments.service';
 import { Assignment } from '../assignment.model';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {STEPPER_GLOBAL_OPTIONS} from '@angular/cdk/stepper';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-edit-assigment',
@@ -30,7 +31,8 @@ export class EditAssigmentComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private assignmentsService: AssignmentsService,
-    private _formBuilder: FormBuilder
+    private _formBuilder: FormBuilder,
+    private _snackBar: MatSnackBar
   ) {}
   
   ngOnInit(): void {
@@ -100,6 +102,9 @@ export class EditAssigmentComponent implements OnInit {
       .updateAssignment(this.assignment)
       .subscribe((reponse) => {
         console.log(reponse.message);
+        this._snackBar.open('Modification effectué', '',{
+          duration: 2000
+        });
         this.router.navigate(['/assignment', this.assignment.id]);
       });
       

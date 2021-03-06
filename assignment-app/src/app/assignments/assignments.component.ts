@@ -16,6 +16,7 @@ export class AssignmentsComponent implements OnInit{
   matieres:Matiere[];
   estconnecte=true;
   
+  
   constructor(private assignmentService: AssignmentsService, private router: Router, private route: ActivatedRoute, private authService:AuthService) {}
   
 

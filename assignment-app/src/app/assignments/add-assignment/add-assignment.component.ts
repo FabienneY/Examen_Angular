@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { AssignmentsService } from 'src/app/shared/assignments.service';
 import { Assignment } from '../assignment.model';
@@ -37,7 +38,8 @@ export class AddAssignmentComponent implements OnInit {
 
   constructor(
     private assignmentsService: AssignmentsService,
-    private router: Router
+    private router: Router,
+    private _snackBar: MatSnackBar
   ) {}
 
   ngOnInit(): void {}
@@ -78,6 +80,9 @@ export class AddAssignmentComponent implements OnInit {
       .addAssignment(newAssignment)
       .subscribe((reponse) => {
         console.log(reponse.message);
+        this._snackBar.open('Assignment enregistré enregistrée', '',{
+          duration: 2000
+        });
 
         // il va falloir naviguer de nouveau vers la page d'accueil
         // on va devoir faire l'équivalent du routerLink="/home" mais

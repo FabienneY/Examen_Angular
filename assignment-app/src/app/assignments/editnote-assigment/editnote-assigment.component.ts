@@ -1,6 +1,7 @@
 import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AssignmentsService } from 'src/app/shared/assignments.service';
 import { Assignment } from '../assignment.model';
@@ -19,12 +20,14 @@ export class EditnoteAssigmentComponent implements OnInit {
   note:number;
   remarque:string;
   firstFormGroup: FormGroup;
+  
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
     private assignmentsService: AssignmentsService,
-    private _formBuilder: FormBuilder
+    private _formBuilder: FormBuilder,
+    private _snackBar: MatSnackBar
   ) {}
   
   ngOnInit(): void {
@@ -67,6 +70,9 @@ export class EditnoteAssigmentComponent implements OnInit {
       .updateAssignment(this.assignment)
       .subscribe((reponse) => {
         console.log(reponse.message);
+        this._snackBar.open('Note enregistrée', '',{
+          duration: 2000
+        });
         this.router.navigate(['/assignment', this.assignment.id]);
       });
       
