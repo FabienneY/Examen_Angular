@@ -16,11 +16,11 @@ export class AuthService {
   constructor (private http: HttpClient){}
 
   connecte(data): Observable<any>{
-    return this.http.post('http://localhost:3000/api/auth/connexion',data);
+    return this.http.post('http://apiauthentification.herokuapp.com/api/auth/connexion',data);
   }
 
 
   deconnecte(): Observable<any>{
-    return this.http.get('http://localhost:3000/api/auth/deconnexion');
+    return this.http.get('http://apiauthentification.herokuapp.com/api/auth/deconnexion');
   }
 }

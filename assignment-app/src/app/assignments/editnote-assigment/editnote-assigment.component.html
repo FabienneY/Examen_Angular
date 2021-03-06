@@ -48,57 +48,19 @@
   <br>
 
   <mat-horizontal-stepper #stepper>
+    
     <mat-step [stepControl]="firstFormGroup">
       <br>
-      <form ngForm class="form" [formGroup]="firstFormGroup" >
-        <ng-template matStepLabel>Devoir</ng-template>
-        <mat-form-field>
-          <mat-label>Nom du devoir</mat-label>
-          <input matInput [(ngModel)]="nomassignment" formControlName="ctrlun" required>
-        </mat-form-field>
-        
-        <mat-form-field>
-          <mat-label>Nom de l'élève</mat-label>
-          <input matInput [(ngModel)]="nomEleve"  formControlName="ctrldeux" required>
-        </mat-form-field>
-
-        <mat-form-field>
-          <mat-label>Date</mat-label>
-          <input matInput [matDatepicker]="datepicker" [(ngModel)]="dateDeRendu" formControlName="ctrltrois" required>
-  
-          <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
-          <mat-datepicker #datepicker></mat-datepicker>
-        </mat-form-field>
-  
-      </form><br>
-      <button mat-flat-button matStepperNext>Suivant</button>
-    </mat-step>
-    <mat-step [stepControl]="secondFormGroup">
-      <br>
-      <form ngForm class="form" [formGroup]="secondFormGroup" >
-        <ng-template matStepLabel>Matière</ng-template>
-  
-        <mat-form-field>
-          <mat-label>Nom de la matière</mat-label>
-          <input matInput [(ngModel)]="nomMatiere" formControlName="ctrlquatre" required>
-        </mat-form-field>
-      </form><br>
-      <button mat-flat-button matStepperPrevious>Retour</button>
-      <button mat-flat-button matStepperNext>Suivant</button>
-    </mat-step>
-   
-    <mat-step [stepControl]="ThirdFormGroup">
-      <br>
-      <form ngForm class="form" [formGroup]="ThirdFormGroup">
+      <form ngForm class="form" [formGroup]="firstFormGroup">
         <ng-template matStepLabel>Note</ng-template>
   
         <mat-form-field>
           <mat-label>Note</mat-label>
-          <input matInput [(ngModel)]="note" formControlName="ctrlcinq" required>
+          <input matInput [(ngModel)]="note" formControlName="ctrlun" required>
         </mat-form-field>
         <mat-form-field>
           <mat-label>Remarque</mat-label>
-          <input matInput [(ngModel)]="remarque" formControlName="ctrlsix" required>
+          <input matInput [(ngModel)]="remarque" formControlName="ctrldeux" required>
         </mat-form-field>
       </form>
       <button mat-flat-button matStepperPrevious>Retour</button>

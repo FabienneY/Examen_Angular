@@ -28,10 +28,10 @@ export class AddAssignmentComponent implements OnInit {
    matieres: Matiere[] = [
     {nomMatiere: 'oracle', imgMatiere: 'assets/images/oracle.png', nomProf: 'Gabriel Mopolo', photoProf: 'assets/images/Mopolo.png'},
     {nomMatiere: 'Angular', imgMatiere: 'assets/images/angular.png', nomProf: 'Michel Buffa', photoProf: 'assets/images/Buffa.png'},
-    {nomMatiere: 'Grails', imgMatiere: 'assets/images/grails.png', nomProf: 'Gregory Galli', photoProf: 'assets/images/grails.png'},
-    {nomMatiere: 'java', imgMatiere: 'assets/images/java.png', nomProf: 'Amosse Edouard', photoProf: 'assets/images/Amosse.jpg'},
-    {nomMatiere: 'Docker', imgMatiere: 'assets/images/docker.jpg', nomProf: 'Kamagate Beman', photoProf: 'assets/images/docker.jpg'},
-    {nomMatiere: 'Andoid', imgMatiere: 'assets/images/android.png', nomProf: 'Amosse Edouard', photoProf: 'assets/images/Amosse.jpg'},
+    {nomMatiere: 'Grails', imgMatiere: 'assets/images/grails.png', nomProf: 'Gregory Galli', photoProf: 'assets/images/Galli.jpg'},
+    {nomMatiere: 'java', imgMatiere: 'assets/images/java.png', nomProf: 'Amosse Edouard', photoProf: 'assets/images/Amosse.png'},
+    {nomMatiere: 'Docker', imgMatiere: 'assets/images/docker.jpg', nomProf: 'Kamagate Beman', photoProf: 'assets/images/Beman.jpg'},
+    {nomMatiere: 'Andoid', imgMatiere: 'assets/images/android.png', nomProf: 'Amosse Edouard', photoProf: 'assets/images/Amosse.png'},
     {nomMatiere: 'R', imgMatiere: 'assets/images/R.png', nomProf: 'Alison Temin', photoProf: 'assets/images/Alison.jpg'},
   ];
 
