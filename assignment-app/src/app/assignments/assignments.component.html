@@ -2,34 +2,26 @@
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <!------ Include the above in your HEAD tag ---------->
-<div>
+<div >
   <nav class="navbar navbar-icon-top navbar-expand-lg navbar-dark bg-secondary">
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent" *ngIf="isConnect()">
+    
+    <div class="collapse navbar-collapse" id="navbarSupportedContent" *ngIf="isConnect()" >
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
           <a class="navbar-brand">
             <img style="margin-top: -10px;" alt="Logo" src="../../../assets/images/logo.PNG" class="pull-left">
-          </a>
+            </a>
         </li>
 
-
-        <li class="nav-item dropdown">
-          <a [matMenuTriggerFor]="menu" class="nav-link dropdown-toggle" id="navbarDropdown" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/affiche">
             <i class="fa fa-list">
               <span class="badge badge-primary"></span>
-            </i>
-            Listes Assignements
-          </a>
-          <mat-menu #menu="matMenu">
-            <a class="dropdown-item" routerLink="/afficheRendu"> <i class="fa fa-check-square-o"></i> Assignments rendus</a>
-            <a class="dropdown-item" routerLink="/affiche"> <i class="fa fa-window-close-o"></i> Assignments non
-              rendus</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" routerLink="/affiche"> <i class="fa fa-bars"></i> Ensemble des assignments</a>
-          </mat-menu>
+            </i> 
+             Listes Assignements
+            </a>
         </li>
+        
         <li class="nav-item">
           <a class="nav-link" routerLink="/add">
             <i class="fa fa-pencil-square-o">
@@ -38,10 +30,12 @@
             Ajout Assignements
           </a>
         </li>
-
+        
       </ul>
       <ul class="navbar-nav ">
+       
         
+
         <li class="nav-item">
           <a class="nav-link" (click)=sedeconnecter()>
             <i class="fa fa-sign-out">
@@ -54,15 +48,13 @@
     </div>
   </nav>
 </div>
-
 <div class="container" *ngIf="isConnect()">
   <br><br>
   
-  <div  fxLayout="row wrap" fxLayoutAlign="space-evenly center" fxLayoutGap="20px">
-  
-    <mat-list *ngFor="let a of assignments">
+  <div fxLayout="row wrap" fxLayoutAlign="space-evenly center" fxLayoutGap="20px">
+  <mat-list *ngFor="let a of assignments">
     
-    <mat-card class="example-card" *ngIf = "!a.rendu">
+    <mat-card class="example-card">
       <mat-card-header>
         <img mat-card-avatar src="{{a.photoProf}}" class="example-header-image">
         <mat-card-title>{{a.nom}}</mat-card-title>

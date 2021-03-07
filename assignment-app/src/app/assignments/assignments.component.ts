@@ -14,9 +14,6 @@ export class AssignmentsComponent implements OnInit{
   assignmentSelectionne: Assignment;
   assignments: Assignment[] ;
   matieres:Matiere[];
-  nomEleve: string;
-  id: number;
-  assignment: Assignment;
   
   
   constructor(private assignmentService: AssignmentsService, private router: Router, private route: ActivatedRoute, private authService:AuthService) {}
@@ -31,6 +28,14 @@ export class AssignmentsComponent implements OnInit{
     console.log('getAssignments appelé....');
   }
 
+  afficherendu(): void {
+    console.log('Demande des assignments via le service...');
+    this.assignmentService.getAssignments().subscribe((assignements) => {
+      this.assignments = assignements;
+      console.log('Données reçues...');
+    });
+    console.log('getAssignments appelé....');
+  }
 
   assignmentClique(a: Assignment) {
     console.log('Assignment cliqué : ' + a.nom);
@@ -71,8 +76,4 @@ export class AssignmentsComponent implements OnInit{
     return this.authService.estconnecte;
   }
 
-  
-
 }
-
-

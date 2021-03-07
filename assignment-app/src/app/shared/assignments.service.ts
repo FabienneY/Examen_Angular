@@ -75,7 +75,6 @@ export class AssignmentsService {
 
     /*
     let assignmentTrouve: Assignment;
-
     this.assignments.forEach((a, index) => {
       if (a.id === id) {
         console.log("Assignment trouvé à l'index " + index);
@@ -103,42 +102,6 @@ export class AssignmentsService {
     );
     */
   }
-
-  getAssignmentEleve(id:number, auteur: string): Observable<Assignment> {
-    console.log('Dans getAssignment dans le service nom=' + auteur);
-    this.loggingService.log('Assignment nom=' + auteur, 'a été recherché');
-
-    /*
-    let assignmentTrouve: Assignment;
-
-    this.assignments.forEach((a, index) => {
-      if (a.id === id) {
-        console.log("Assignment trouvé à l'index " + index);
-        assignmentTrouve = a;
-      }
-    });
-    return of(assignmentTrouve);
-*/
-    //return of(this.assignments.find((a) => a.id === id));
-    return this.http.get<Assignment>(this.url + '/' + id);
-    /*
-    .pipe(
-      map((a) => {
-        a.nom += ' MODIFIE';
-        return a;
-      }),
-      map((a) => {
-        a.nom += ' MODIFIE2 ';
-        return a;
-      }),
-      tap((a) => {
-        console.log(' ici une trace pour le debug :' + a.nom);
-      }),
-      catchError(this.handleError<any>('getAssignments'))
-    );
-    */
-  }
-
   private handleError<T>(operation: any, result?: T) {
     return (error: any): Observable<T> => {
       console.log(error); // pour afficher dans la console
