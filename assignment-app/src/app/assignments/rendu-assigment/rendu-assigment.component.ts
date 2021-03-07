@@ -1,25 +1,58 @@
+
+
+
+
 import { Component, OnInit} from '@angular/core';
-import { AssignmentsService } from '../shared/assignments.service';
+import { AssignmentsService } from 'src/app/shared/assignments.service';
+import { Assignment } from '../assignment.model';
+import { Matiere } from '../matiere.model';
+import { ActivatedRoute, Router } from '@angular/router';
+import { AuthService } from 'src/app/shared/auth.service';
+
+
+
+/*import { AssignmentsService } from '.../shared/assignments.service';
 import { Assignment } from './assignment.model';
 import { Matiere } from './matiere.model'
 import { ActivatedRoute, Router } from '@angular/router';
-import { AuthService } from '../shared/auth.service';
+import { AuthService } from '.../shared/auth.service';*/
+
+
 
 @Component({
-  selector: 'app-assignments',
-  templateUrl: './assignments.component.html',
-  styleUrls: ['./assignments.component.css'],
+  selector: 'app-rendu-assigment',
+  templateUrl: './rendu-assigment.component.html',
+  styleUrls: ['./rendu-assigment.component.css']
 })
-export class AssignmentsComponent implements OnInit{
+export class RenduAssigmentComponent implements OnInit {
+
   assignmentSelectionne: Assignment;
   assignments: Assignment[] ;
   matieres:Matiere[];
+  ListRendu: [];
   nomEleve: string;
   id: number;
   assignment: Assignment;
   
   
   constructor(private assignmentService: AssignmentsService, private router: Router, private route: ActivatedRoute, private authService:AuthService) {}
+  
+  listRendu(){
+    this.assignmentService
+          .getAssignments()
+            .subscribe((assignments) => {
+              assignments.forEach(a =>{
+                if(a.rendu==true){
+                  this.assignments.push(a);
+                  console.log(this.assignments)
+                }
+                
+              });
+              
+
+              
+          } );
+  }
   
 
   ngOnInit(): void {
@@ -31,6 +64,14 @@ export class AssignmentsComponent implements OnInit{
     console.log('getAssignments appelé....');
   }
 
+  afficherendu(): void {
+    console.log('Demande des assignments via le service...');
+    this.assignmentService.getAssignments().subscribe((assignements) => {
+      this.assignments = assignements;
+      console.log('Données reçues...');
+    });
+    console.log('getAssignments appelé....');
+  }
 
   assignmentClique(a: Assignment) {
     console.log('Assignment cliqué : ' + a.nom);
@@ -71,8 +112,24 @@ export class AssignmentsComponent implements OnInit{
     return this.authService.estconnecte;
   }
 
-  
+  rechercher(nom) {
+    // evite la soumission standard du formulaire, qui génère un warning
+    // dans la console...
+    nom.preventDefault();
+    id: Number;
+    
+    console.log(
+      'Dans recherche nom = ' + this.nomEleve
+    );
+
+    // on va utiliser directement le service
+    this.assignmentService.getAssignmentEleve(this.id,nom).subscribe((assignment) =>{
+      
+        this.router.navigate(['/affiche']);
+      });
+  }
 
 }
+
 
 

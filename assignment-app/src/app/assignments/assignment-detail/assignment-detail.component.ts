@@ -3,6 +3,7 @@ import { AssignmentsService } from 'src/app/shared/assignments.service';
 import { Assignment } from '../assignment.model';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from 'src/app/shared/auth.service';
+import { EditAssigmentComponent } from '../edit-assigment/edit-assigment.component'
 
 
 @Component({
@@ -18,7 +19,8 @@ export class AssignmentDetailComponent implements OnInit {
     private assignmentsService: AssignmentsService,
     private route: ActivatedRoute,
     private router: Router,
-    private authService: AuthService
+    private authService: AuthService,
+    private edit: EditAssigmentComponent
   ) {}
 
   ngOnInit(): void {
@@ -49,7 +51,8 @@ export class AssignmentDetailComponent implements OnInit {
         console.log(message);
 
         // on retourne à la page d'accueil
-        this.router.navigate(['/assignment', this.assignmentTransmis.id, 'editnote']);
+        this.router.navigate(['/assignment', this.assignmentTransmis.id, 'edit']);
+       
       });
   }
 

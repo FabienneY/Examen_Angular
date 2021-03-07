@@ -32,11 +32,13 @@ import {MatMenuModule} from '@angular/material/menu';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { EditnoteAssigmentComponent } from './assignments/editnote-assigment/editnote-assigment.component';
+import { RenduAssigmentComponent } from './assignments/rendu-assigment/rendu-assigment.component';
 
 const routes: Routes = [
   { path: '', component: ConnexionComponent },
   { path: 'home', component: ConnexionComponent },
   { path: 'affiche', component: AssignmentsComponent, canActivate: [AuthGuard] },
+  { path: 'afficheRendu', component: RenduAssigmentComponent, canActivate: [AuthGuard] },
   { path: 'add', component: AddAssignmentComponent },
   { path: 'assignment/:id', component: AssignmentDetailComponent },
   {
@@ -60,6 +62,7 @@ const routes: Routes = [
     EditAssigmentComponent,
     ConnexionComponent,
     EditnoteAssigmentComponent,
+    RenduAssigmentComponent,
   ],
   imports: [
     BrowserModule,
